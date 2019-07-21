@@ -4,7 +4,7 @@ import pyowm
 from yandex.Translater import Translater
 trans = Translater()
 owm = pyowm.OWM('4613a2063bd329d8886d085321fbf742')
-
+weather_wind_azimut = ""
 
 def clicked():
     txt.delete(1.0,END)
@@ -18,13 +18,13 @@ def clicked():
     weather_wind_speed = w.get_wind()['speed']
     weather_wind_deg = int(w.get_wind()['deg'])
     if 0 <= weather_wind_deg < 90:
-        global weather_wind_azimut
+
         weather_wind_azimut = "Северный"
-    if 90 <= weather_wind_deg < 180:
+    elif 90 <= weather_wind_deg < 180:
         weather_wind_azimut = "Восточный"
-    if 180 <= weather_wind_deg < 270:
+    elif 180 <= weather_wind_deg < 270:
          weather_wind_azimut = "Южный"
-    if 270 <= weather_wind_deg < 359:
+    elif 270 <= weather_wind_deg < 359:
         weather_wind_azimut = "Западный"
 
 
